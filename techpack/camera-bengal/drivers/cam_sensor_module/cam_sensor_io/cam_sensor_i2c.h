@@ -9,8 +9,8 @@
 #include <linux/delay.h>
 #include <media/v4l2-subdev.h>
 #include <media/cam_sensor.h>
-#include "cam_cci_dev.h"
-#include "cam_sensor_io.h"
+#include "../cam_cci/cam_cci_dev.h"
+#include "../cam_sensor_io/cam_sensor_io.h"
 
 #define I2C_POLL_TIME_MS 5
 #define MAX_POLL_DELAY_MS 100

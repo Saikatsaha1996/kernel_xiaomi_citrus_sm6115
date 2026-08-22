@@ -6,7 +6,7 @@
 #undef TRACE_SYSTEM
 #define TRACE_SYSTEM clk_qcom
 
-#if !defined(_TRACE_CLOCK_QCOM_H) || defined(TRACE_HEADER_MULTI_READ)
+#if !defined(_TRACE_CLOCK_QCOM) || defined(TRACE_HEADER_MULTI_READ)
 #define _TRACE_CLOCK_QCOM
 
 #include <linux/tracepoint.h>
@@ -43,7 +43,7 @@ DEFINE_EVENT(clk_measure_support, clk_measure,
 /* This part must be outside protection */
 
 #undef TRACE_INCLUDE_PATH
-#define TRACE_INCLUDE_PATH .
+#define TRACE_INCLUDE_PATH ../../drivers/clk/qcom
 
 #undef TRACE_INCLUDE_FILE
 #define TRACE_INCLUDE_FILE trace

@@ -24,7 +24,6 @@
 #include <asm/mmu_context.h>
 #include <asm/page.h>
 
-#include "cpu-reset.h"
 
 /* Global variables for the arm64_relocate_new_kernel routine. */
 extern const unsigned char arm64_relocate_new_kernel[];
@@ -215,7 +214,7 @@ void machine_kexec(struct kimage *kimage)
 	 * relocation is complete.
 	 */
 
-	cpu_soft_restart(reboot_code_buffer_phys, kimage->head, kimage->start, 0);
+	cpu_soft_restart(reboot_code_buffer_phys, kimage->head);
 
 	BUG(); /* Should never get here. */
 }
