@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: GPL-2.0
+
+config DRM_MSM
+	tristate "MSM DRM (Qualcomm Techpack)"
+	depends on DRM
+	depends on ARCH_BENGAL || ARCH_KONA || ARCH_LITO
+	depends on OF
+	default y
+	help
+	  Qualcomm Techpack MSM DRM display driver.
