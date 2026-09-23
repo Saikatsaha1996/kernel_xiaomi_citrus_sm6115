@@ -1869,6 +1869,7 @@
 		qcom,smem-states = <&sleepstate_smp2p_out 0>;
 		interrupt-parent = <&sleepstate_smp2p_in>;
 		interrupts = <0 0>;
+                //interrupts = <0 IRQ_TYPE_EDGE_RISING>;
 		interrupt-names = "smp2p-sleepstate-in";
 	};
 
@@ -2164,8 +2165,12 @@
 				"qcom,shutdown-ack";
 
 		/* Outputs to mss */
-		qcom,smem-states = <&modem_smp2p_out 0>;
-		qcom,smem-state-names = "qcom,force-stop";
+		/*qcom,smem-states = <&modem_smp2p_out 0>;*/
+		/*qcom,smem-state-names = "qcom,force-stop";*/
+                qcom,smem-states = <&modem_smp2p_out 0>,
+				   <&modem_smp2p_out 1>;
+                qcom,smem-state-names = "qcom,force-stop",
+					"qcom,modem-soft-reset";
 	};
 
 	ddr_bw_opp_table: ddr-bw-opp-table {
@@ -2800,3 +2805,36 @@
 #include "bengal-thermal.dtsi"
 #include "camera/bengal-camera.dtsi"
 #include "msm-rdbg.dtsi"
+
+&ufsphy_mem {
+    compatible = "qcom,ufs-phy-qmp-v3-660";
+
+    vdda-phy-supply = <&L4A>;
+    vdda-pll-supply = <&L12A>;
+
+    vdda-phy-max-microamp = <51400>;
+    vdda-pll-max-microamp = <14200>;
+
+    status = "ok";
+};
+
+&ufshc_mem {
+    vdd-hba-supply = <&gcc_ufs_phy_gdsc>;
+    vdd-hba-fixed-regulator;
+
+    vcc-supply = <&L24A>;
+    vcc-voltage-level = <2950000 2960000>;
+
+    vccq2-supply = <&L11A>;
+    vcc-max-microamp = <600000>;
+    vccq2-max-microamp = <600000>;
+
+    vccq2-pwr-collapse-sup;
+
+    qcom,vddp-ref-clk-supply = <&L18A>;
+    qcom,vddp-ref-clk-max-microamp = <100>;
+    qcom,vddp-ref-clk-min-uV = <1232000>;
+    qcom,vddp-ref-clk-max-uV = <1232000>;
+
+    status = "ok";
+};
