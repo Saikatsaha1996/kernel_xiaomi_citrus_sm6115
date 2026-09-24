@@ -97,13 +97,16 @@ dtb-$(CONFIG_ARCH_LAGOON) += \
 endif
 
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
-        dtbo-$(CONFIG_ARCH_BENGAL) += \
-                bengal-idp-overlay.dtbo
+dtb-$(CONFIG_ARCH_BENGAL) += \
+        bengal.dtb
+
+dtbo-$(CONFIG_ARCH_BENGAL) += \
+        bengal-idp-overlay.dtbo
 
 bengal-idp-overlay.dtbo-base := bengal.dtb
 else
 dtb-$(CONFIG_ARCH_BENGAL) += \
-                bengal-idp.dtb
+        bengal-idp.dtb
 endif
 
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
