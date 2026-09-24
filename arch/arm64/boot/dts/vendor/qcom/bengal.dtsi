@@ -1869,7 +1869,6 @@
 		qcom,smem-states = <&sleepstate_smp2p_out 0>;
 		interrupt-parent = <&sleepstate_smp2p_in>;
 		interrupts = <0 0>;
-                //interrupts = <0 IRQ_TYPE_EDGE_RISING>;
 		interrupt-names = "smp2p-sleepstate-in";
 	};
 
@@ -2167,8 +2166,6 @@
 		/* Outputs to mss */
 		qcom,smem-states = <&modem_smp2p_out 0>;
 		qcom,smem-state-names = "qcom,force-stop";
-        //qcom,smem-states = <&modem_smp2p_out 0>,<&modem_smp2p_out 1>;
-        //qcom,smem-state-names = "qcom,force-stop","qcom,modem-soft-reset";
 	};
 
 	ddr_bw_opp_table: ddr-bw-opp-table {
