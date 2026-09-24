@@ -98,15 +98,17 @@ endif
 
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 dtb-$(CONFIG_ARCH_BENGAL) += \
-        bengal.dtb
+	bengal.dtb \
+	bengal-idp.dtb
 
 dtbo-$(CONFIG_ARCH_BENGAL) += \
-        bengal-idp-overlay.dtbo
+	bengal-idp-overlay.dtbo
 
 bengal-idp-overlay.dtbo-base := bengal.dtb
 else
 dtb-$(CONFIG_ARCH_BENGAL) += \
-        bengal-idp.dtb
+	bengal.dtb \
+	bengal-idp.dtb
 endif
 
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
